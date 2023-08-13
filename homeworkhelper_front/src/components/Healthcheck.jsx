@@ -19,15 +19,29 @@ const Healthcheck = () => {
 			console.error(error.response);
 		}
 	};
-
+	const healthcheck = () => {
+		if (healthStatus == "waiting") {
+			return (
+				<p className='dad-joke'></p>
+			);
+		}
+		if (healthStatus) {
+			return (
+				<p className='dad-joke'>The system is up and running</p>
+			);
+		}
+		else {
+			return (
+				<p className='dad-joke'>There is a problem.</p>
+			);
+		}
+	};
 	return (
 		<section className='section text-center'>
 			<button className='btn' onClick={fetchHealthcheck}>
-				Healthcheck
+				Run Healthcheck
 			</button>
-			{healthStatus == "waiting" ? <p className='dad-joke'>Waiting for response...</p> : null}
-			{healthStatus ? <p className='dad-joke' > The system is up and running</p> : <p className='dad-joke'>There is a problem.</p>
-			}
+			{healthcheck()}
 		</section >
 	);
 };
