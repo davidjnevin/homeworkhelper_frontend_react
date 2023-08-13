@@ -17,22 +17,23 @@ const Healthcheck = () => {
 		}
 		catch (error) {
 			console.error(error.response);
+			setHealthStatus(false);
 		}
 	};
 	const healthcheck = () => {
 		if (healthStatus == "waiting") {
 			return (
-				<p className='dad-joke'></p>
+				<p className='margin-top-1'></p>
 			);
 		}
 		if (healthStatus) {
 			return (
-				<p className='dad-joke'>The system is up and running</p>
+				<p className='margin-top-1'>The system is up and running</p>
 			);
 		}
 		else {
 			return (
-				<p className='dad-joke'>There is a problem.</p>
+				<p className='margin-top-1'>There is a problem.</p>
 			);
 		}
 	};
