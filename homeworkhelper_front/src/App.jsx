@@ -1,12 +1,14 @@
-import HealthCheck from './components/HealthCheck'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import routes from './utils/routes';
 
-function App() {
+export const NoMatch = () => <div>No match</div>;
 
-	return (
-		<main>
-			<HealthCheck />
-		</main>
-	)
+export const LocationDisplay = () => {
+	const location = useLocation();
+
+	return <div data-testid="location-display">{location.pathname}</div>;
 };
+const router = createBrowserRouter(routes);
+const App = () => <RouterProvider router={router}></RouterProvider>;
 
-export default App
+export default App;

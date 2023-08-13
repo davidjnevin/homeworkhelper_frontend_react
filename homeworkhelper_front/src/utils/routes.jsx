@@ -1,10 +1,10 @@
 import { createBrowserRouter } from 'react-router-dom';
-import HealthCheck from './components/HealthCheck'
-import LoginBox from './components/user/LoginBox'
+import HealthCheck from '../components/HealthCheck'
+import LoginBox from '../components/user/LoginBox'
 
-import { About, Assignments, Error, HomeLayout, Landing, Subjects, Teachers } from './pages'
+import { About, Assignments, Error, HomeLayout, Landing, Subjects, Teachers } from '../pages'
 
-const router = createBrowserRouter([
+const routes = [
 	{
 		path: '/',
 		element: <HomeLayout />,
@@ -34,16 +34,15 @@ const router = createBrowserRouter([
 				element: <LoginBox />
 			},
 			{
-				path: 'error',
+				path: '*',
 				element: <Error />,
 			},
 			{
 				path: 'healthcheck',
 				element: <HealthCheck />
 			},
-
 		],
 	},
-])
+];
 
-export default router;
+export default routes;
