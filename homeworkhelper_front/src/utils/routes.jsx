@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import HealthCheck from '../components/HealthCheck'
 import LoginBox from '../components/user/LoginBox'
+import RegisterForm from '../components/user/RegisterForm';
 
 import { About, Assignments, Error, HomeLayout, Landing, Subjects, Teachers } from '../pages'
 
@@ -8,6 +9,7 @@ const routes = [
 	{
 		path: '/',
 		element: <HomeLayout />,
+		errorElement: <Error />,
 		children: [
 			{
 				index: true,
@@ -34,8 +36,8 @@ const routes = [
 				element: <LoginBox />
 			},
 			{
-				path: '*',
-				element: <Error />,
+				path: 'register',
+				element: <RegisterForm />
 			},
 			{
 				path: 'healthcheck',
